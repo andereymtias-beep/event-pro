@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event-Pro | Seminar Registration</title>
+
+    <meta name="description"
+          content="Register for seminars and academic events using Event-Pro.">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="index.html">
+            Event-Pro
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#event">Event Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.php">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <section class="hero-section" id="home">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="badge text-bg-light mb-3">
+                        SEMINAR REGISTRATION PLATFORM
+                    </span>
+
+                    <h1 class="display-4 fw-bold mb-3">
+                        Your next learning experience starts here.
+                    </h1>
+
+                    <p class="lead mb-4">
+                        Discover seminars, reserve your slot, and receive
+                        your personal QR code for faster event check-in.
+                    </p>
+
+                    <a href="register.php"
+                       class="btn btn-light btn-lg fw-semibold">
+                        Register Now
+                    </a>
+
+                    <a href="#event"
+                       class="btn btn-outline-light btn-lg ms-2">
+                        View Event
+                    </a>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="hero-card">
+                        <div class="small text-uppercase fw-semibold mb-2">
+                            Featured Seminar
+                        </div>
+
+                        <h2 class="h3 fw-bold">
+                            Technology and Innovation Seminar
+                        </h2>
+
+                        <p class="mb-0">
+                            Learn, connect, and explore new technologies
+                            with fellow students and participants.
+                        </p>
+
+                        <hr>
+
+                        <p class="mb-2">
+                            <strong>Date:</strong> March 15, 2027
+                        </p>
+                        <p class="mb-0">
+                            <strong>Venue:</strong> PRMSU Campus, Zambales
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="event">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-8">
+                    <div class="content-card h-100">
+                        <span class="section-label">ABOUT THE EVENT</span>
+
+                        <h2 class="h3 fw-bold mt-2">
+                            Technology and Innovation Seminar
+                        </h2>
+
+                        <p class="text-secondary">
+                            Join this sample academic seminar to explore
+                            technology, innovation, and practical learning.
+                            Replace this description with your actual
+                            seminar information.
+                        </p>
+
+                        <div class="row g-3 mt-3">
+                            <div class="col-sm-6">
+                                <div class="detail-item">
+                                    <span class="detail-label">Date</span>
+                                    <strong>March 15, 2027</strong>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="detail-item">
+                                    <span class="detail-label">Time</span>
+                                    <strong>9:00 AM – 4:00 PM</strong>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="detail-item">
+                                    <span class="detail-label">Venue</span>
+                                    <strong>PRMSU Campus, Zambales</strong>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="detail-item">
+                                    <span class="detail-label">Organizer</span>
+                                    <strong>Event-Pro Organizer</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="content-card h-100">
+                        <span class="section-label">REGISTRATION</span>
+
+                        <h2 class="h4 fw-bold mt-2">
+                            Reserve your slot
+                        </h2>
+
+                        <p class="text-secondary">
+                            Registration availability will be connected
+                            to the database in a later step.
+                        </p>
+
+                        <div class="availability-placeholder mb-3">
+                            <span class="status-dot"></span>
+                            <span>Sample event information</span>
+                        </div>
+
+                        <a href="register.php"
+                           class="btn btn-primary w-100">
+                            Register for Seminar
+                        </a>
+
+                        <p class="small text-secondary mt-3 mb-0">
+                            Registration is subject to event capacity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer py-4" id="contact">
+    <div class="container d-flex flex-column flex-md-row
+                justify-content-between gap-2">
+        <span class="fw-bold">Event-Pro</span>
+        <span class="text-secondary">
+            Seminar Registration and QR Attendance Management
+        </span>
+        <span class="text-secondary">
+            &copy; 2026 Event-Pro
+        </span>
+    </div>
+</footer>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+
+# Environment variables and local secrets
+.env
+.env.*
+!.env.example
+
+# Local database and credentials
+config/database.local.php
+
+# Dependencies (install with Composer)
+vendor/
+
+# Generated QR codes and uploaded files
+/storage/qrcodes/*
+!/storage/qrcodes/.gitkeep
+/uploads/*
+!/uploads/.gitkeep
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE settings
+.idea/
+.vscode/
+
+# Local database exports and backups
+*.sql.bak
+database/*-backup.sql
+database/*-dump.sql
+
+# PHP development files
+.phpunit.cache/
+.php-cs-fixer.cache
+
+# Local development and diagnostic scripts
+/phpinfo.php
+/test-db.php
+/test-qr.php
+/make-password-hash.php
+
+# Local backups of source files
+/admin/manage-events-backup.php
+/admin/manage-events-before-edit.php

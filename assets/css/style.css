@@ -1,0 +1,117 @@
+
+:root {
+    --primary: #175cd3;
+    --primary-dark: #123b83;
+    --background: #f5f7fb;
+    --text: #182230;
+    --muted: #667085;
+    --border: #e4e7ec;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    line-height: 1.6;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #123b83, #175cd3);
+    color: white;
+}
+
+.hero-section h1 {
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+}
+
+.hero-card {
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.content-card {
+    padding: 1.75rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    box-shadow: 0 4px 18px rgba(16, 24, 40, 0.04);
+}
+
+.section-label {
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 0.75rem;
+}
+
+.detail-label {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.availability-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    background: #f2f4f7;
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    background: #98a2b3;
+    border-radius: 50%;
+}
+
+.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.footer {
+    background: white;
+    border-top: 1px solid var(--border);
+}
+
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 2.35rem;
+    }
+
+    .hero-card,
+    .content-card {
+        padding: 1.25rem;
+    }
+
+    .hero-section .btn {
+        width: 100%;
+        margin: 0.35rem 0;
+    }
+}

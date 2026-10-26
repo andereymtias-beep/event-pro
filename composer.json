@@ -1,0 +1,9 @@
+
+{
+    "name": "event-pro/seminar-registration-system",
+    "description": "PHP-based seminar registration and attendance management system with QR code check-in.",
+    "type": "project",
+    "require": {
+        "endroid/qr-code": "^6.0"
+    }
+}
