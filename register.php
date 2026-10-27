@@ -249,7 +249,7 @@ $isOpen = (bool) $event['is_active']
 
 <nav class="navbar bg-white border-bottom">
     <div class="container">
-        <a class="navbar-brand fw-bold text-primary" href="index.html">Event-Pro</a>
+        <a class="navbar-brand fw-bold text-primary" href="index.php">Event-Pro</a>
         <a href="event-details.php?event_id=<?= (int) $event['id'] ?>"
            class="btn btn-outline-primary">Event Details</a>
     </div>

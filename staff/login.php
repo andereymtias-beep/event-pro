@@ -75,10 +75,10 @@ exit;
 <body>
 <nav class="navbar bg-white border-bottom">
     <div class="container">
-        <a class="navbar-brand fw-bold text-primary" href="index.html">
+        <a class="navbar-brand fw-bold text-primary" href="index.php">
             Event-Pro
         </a>
-        <a href="index.html" class="btn btn-outline-primary">Home</a>
+        <a href="index.php" class="btn btn-outline-primary">Home</a>
     </div>
 </nav>
 

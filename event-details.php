@@ -65,8 +65,8 @@ $percentage = $capacity > 0
 <body>
 <nav class="navbar bg-white border-bottom">
     <div class="container">
-        <a class="navbar-brand fw-bold text-primary" href="index.html">Event-Pro</a>
-        <a class="btn btn-outline-primary" href="index.html">Back to Home</a>
+        <a class="navbar-brand fw-bold text-primary" href="index.php">Event-Pro</a>
+        <a class="btn btn-outline-primary" href="index.php">Back to Home</a>
     </div>
 </nav>
 

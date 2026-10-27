@@ -10,7 +10,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 $registration = $_SESSION['event_pro_registration'] ?? null;
 
 if (!is_array($registration)) {
-    header('Location: index.html');
+    header('Location: index.php');
     exit;
 }
 
@@ -54,7 +54,7 @@ $qrImageUrl = 'storage/qrcodes/' . rawurlencode($qrFilename);
 
 <nav class="navbar bg-white border-bottom">
     <div class="container">
-        <a class="navbar-brand fw-bold text-primary" href="index.html">
+        <a class="navbar-brand fw-bold text-primary" href="index.php">
             Event-Pro
         </a>
     </div>
@@ -133,7 +133,7 @@ $qrImageUrl = 'storage/qrcodes/' . rawurlencode($qrFilename);
                     Return to Event Details
                 </a>
 
-                <a href="index.html"
+                <a href="index.php"
                    class="btn btn-outline-secondary w-100 mt-2">
                     Back to Home
                 </a>
