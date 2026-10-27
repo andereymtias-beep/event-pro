@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/config/database.php';
 require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/includes/csrf.php';
 
 // Load the first active event and its registration count.
 $stmt = $pdo->query(
@@ -326,20 +327,102 @@ if ($event) {
     </section>
 </main>
 
-<footer class="footer py-4" id="contact">
+
+<section class="py-5 bg-light" id="contact">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="content-card">
+                    <span class="section-label">CONTACT</span>
+                    <h2 class="h3 fw-bold mt-2">Contact the Organizer</h2>
+                    <p class="text-secondary">
+                        Have a question about registration, event details,
+                        or QR check-in? Send us a message.
+                    </p>
+
+                    <?php if (($_GET['contact'] ?? '') === 'success'): ?>
+                        <div class="alert alert-success" role="status">
+                            Your message was submitted successfully.
+                        </div>
+                    <?php elseif (($_GET['contact'] ?? '') === 'error'): ?>
+                        <div class="alert alert-danger" role="alert">
+                            We couldn't process your message. Please try again.
+                        </div>
+                    <?php endif; ?>
+
+                    <form action="contact-submit.php" method="POST">
+                        <?= csrfField() ?>
+
+                        <div class="mb-3">
+                            <label for="contact-name" class="form-label">
+                                Full name
+                            </label>
+                            <input type="text" class="form-control"
+                                   id="contact-name" name="name"
+                                   maxlength="100" autocomplete="name"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="contact-email" class="form-label">
+                                Email address
+                            </label>
+                            <input type="email" class="form-control"
+                                   id="contact-email" name="email"
+                                   maxlength="254" autocomplete="email"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="contact-subject" class="form-label">
+                                Subject
+                            </label>
+                            <select class="form-select" id="contact-subject"
+                                    name="subject" required>
+                                <option value="Registration inquiry">
+                                    Registration inquiry
+                                </option>
+                                <option value="Event details">Event details</option>
+                                <option value="QR code or check-in problem">
+                                    QR code or check-in problem
+                                </option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="contact-message" class="form-label">
+                                Message
+                            </label>
+                            <textarea class="form-control"
+                                      id="contact-message" name="message"
+                                      rows="5" maxlength="5000"
+                                      required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer py-4">
     <div class="container d-flex flex-column flex-md-row
                 justify-content-between gap-2">
         <span class="fw-bold">Event-Pro</span>
-
         <span class="text-secondary">
             Seminar Registration and QR Attendance Management
         </span>
-
         <span class="text-secondary">
             &copy; <?= date('Y') ?> Event-Pro
         </span>
     </div>
 </footer>
+
 
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">

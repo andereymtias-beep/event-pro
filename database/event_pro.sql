@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2026 at 04:46 PM
+-- Generation Time: Oct 27, 2026 at 04:42 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,13 +28,28 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `activity_logs` (
+
+CREATE TABLE `events` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `staff_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `event_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `action` varchar(80) NOT NULL,
-  `details` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `title` varchar(180) NOT NULL,
+  `description` text DEFAULT NULL,
+  `event_date` date NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time DEFAULT NULL,
+  `venue` varchar(180) NOT NULL,
+  `organizer` varchar(180) NOT NULL DEFAULT 'Event-Pro Organizer',
+  `max_attendees` int(10) UNSIGNED NOT NULL DEFAULT 100,
+  `registration_open` tinyint(1) NOT NULL DEFAULT 1,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+    ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `idx_events_registration`
+    (`registration_open`, `is_active`, `event_date`)
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -67,6 +82,23 @@ CREATE TABLE `attendees` (
   `department` varchar(120) DEFAULT NULL,
   `qr_token_hash` char(64) NOT NULL,
   `registered_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_messages`
+--
+
+CREATE TABLE `contact_messages` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  `subject` varchar(150) NOT NULL,
+  `message` text NOT NULL,
+  `status` enum('pending','resolved') NOT NULL DEFAULT 'pending',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `resolved_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -143,6 +175,13 @@ ALTER TABLE `attendees`
   ADD KEY `idx_attendees_name` (`full_name`);
 
 --
+-- Indexes for table `contact_messages`
+--
+ALTER TABLE `contact_messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_contact_status_created` (`status`,`created_at`);
+
+--
 -- Indexes for table `events`
 --
 ALTER TABLE `events`
@@ -178,6 +217,12 @@ ALTER TABLE `attendance`
 --
 ALTER TABLE `attendees`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `contact_messages`
+--
+ALTER TABLE `contact_messages`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `events`
